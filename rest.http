@@ -1,0 +1,7 @@
+@url=https://qiita.com
+
+####
+GET {{url}}/api/v2/items
+
+####
+POST http://localhost:3001/api/me
