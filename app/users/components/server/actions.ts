@@ -3,7 +3,7 @@
 import { revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+const API_URL = typeof window === 'undefined' ? process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000' : ''
 
 export type UserResponse = {
   id: number
