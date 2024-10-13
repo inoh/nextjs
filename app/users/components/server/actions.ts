@@ -3,13 +3,15 @@
 import { revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+
 export type UserResponse = {
   id: number
   name: string
 }
 
 export async function getUsers() {
-  const res = await fetch('http://web:3000/api/users', {
+  const res = await fetch(`${API_URL}/api/users`, {
     next: { tags: ['users'] }
   })
   const users: UserResponse[] = await res.json()
@@ -19,7 +21,7 @@ export async function getUsers() {
 export async function createUser(formData: FormData) {
   const name = formData.get('name')
 
-  const res = await fetch('http://web:3000/api/users', {
+  const res = await fetch(`${API_URL}/api/users`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
