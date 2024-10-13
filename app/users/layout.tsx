@@ -1,4 +1,4 @@
-import CreateForm from "./components/client/CreateForm"
+import CreateForm from "@/users/components/client/CreateForm"
 
 export default function RootLayout({
   children,

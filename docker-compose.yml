@@ -4,6 +4,8 @@ services:
     build: .
     ports:
       - "3100:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: http://web:3000
     volumes:
       - .:/app
   db:
